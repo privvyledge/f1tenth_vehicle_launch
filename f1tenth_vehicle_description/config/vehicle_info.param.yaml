@@ -1,0 +1,14 @@
+/**:
+  ros__parameters:
+    # https://autowarefoundation.github.io/autoware-documentation/pr-480/design/autoware-interfaces/components/vehicle-dimensions/
+    # https://autowarefoundation.github.io/autoware-documentation/pr-480/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/creating-vehicle-model/#vehicle_infoparamyaml
+    wheel_radius: 0.055 # The radius of the wheel, primarily used for dead reckoning.
+    wheel_width: 0.051 # The lateral width of a wheel tire, primarily used for dead reckoning.
+    wheel_base: 0.324 # between front wheel center and rear wheel center
+    wheel_tread: 0.244792 # between left wheel center and right wheel center
+    front_overhang: 0.114 # between front wheel center and vehicle front
+    rear_overhang: 0.11 # between rear wheel center and vehicle rear
+    left_overhang: 0.0255 # between left wheel center and vehicle left
+    right_overhang: 0.0255 # between right wheel center and vehicle right
+    vehicle_height: 0.285
+    max_steer_angle: 0.6108652382 # [rad]

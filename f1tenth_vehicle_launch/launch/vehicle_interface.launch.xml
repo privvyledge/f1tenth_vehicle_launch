@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- launches VESC driver and VESC interface node -->
+<launch>
+  <arg name="vehicle_id" default="$(env VEHICLE_ID default)"/>
+  <arg name="vesc_driver_config_path" default="$(find-pkg-share f1tenth_vehicle_launch)/config/vesc_driver.param.yaml" description="" />
+  <arg name="vesc_interface_config_path" default="$(find-pkg-share f1tenth_vehicle_launch)/config/vesc_interface.param.yaml" description="" />
+
+  <!-- Vesc Driver -->
+  <include file="$(find-pkg-share vesc_driver)/launch/vesc_driver_node.launch.py">
+      <arg name="config" value="$(var vesc_driver_config_path)"/>
+  </include>
+
+    <!-- Todo: setup Type A, i.e speed and steering commands or setup Type_b https://autowarefoundation.github.io/autoware-documentation/pr-480/how-to-guides/integrating-autoware/creating-vehicle-interface-package/vehicle-interface/-->
+<!--   <node pkg="vesc_driver" exec="vesc_driver_node" name="vesc_driver_node" >-->
+<!--       <param from="$(var vesc_driver_config_path)" />-->
+<!--   </node>-->
+
+<!--    <node pkg="vesc_ackermann" exec="vesc_to_odom_node" name="vesc_to_odom_node" >-->
+<!--        <param from="$(var vesc_driver_config_path)" />-->
+<!--    </node>-->
+
+  <!-- Vesc Interface -->
+  <include file="$(find-pkg-share f1tenth_vehicle_launch)/launch/vesc_interface.launch.py">
+      <arg name="vesc_driver_config" value="$(var vesc_driver_config_path)"/>
+      <arg name="vesc_interface_config" value="$(var vesc_interface_config_path)"/>
+  </include>
+</launch>
