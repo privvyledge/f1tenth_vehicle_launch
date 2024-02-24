@@ -12,4 +12,13 @@
       </geometry>
     </visual>
   </link>
+
+  <joint name="rear_axle_joint" type="fixed">
+    <origin xyz="0 0 ${vehicle_info['/**']['ros__parameters']['wheel_radius']}" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="rear_axle"/>
+  </joint>
+
+  <link name="rear_axle"/>
+
 </robot>
